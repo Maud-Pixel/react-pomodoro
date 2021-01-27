@@ -29877,9 +29877,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-//import Header from './components/Header'
-console.log("hu");
-
 var HelloMessage = /*#__PURE__*/function (_React$Component) {
   _inherits(HelloMessage, _React$Component);
 
@@ -29909,7 +29906,16 @@ _reactDom.default.render(_react.default.createElement(HelloMessage, {
   name: "Maud"
 }), App);
 
-console.log("hi");
+var minutes = "00";
+var seconds = "00";
+
+var element_minutes = _react.default.createElement("p", null, minutes);
+
+var element_secondes = _react.default.createElement("p", null, seconds);
+
+_reactDom.default.render(element_minutes, document.querySelector(".number__minutes"));
+
+_reactDom.default.render(element_secondes, document.querySelector(".number__seconds"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./scss/app.scss":"scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -29938,7 +29944,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53854" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56804" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./scss/app.scss";
-//import Header from './components/Header'
-console.log("hu");
+
 class HelloMessage extends React.Component {
     render() {
         return (<div>
@@ -17,4 +16,9 @@ let App = document.getElementById("app");
 
 ReactDOM.render(<HelloMessage name="Maud" />, App);
 
-console.log("hi");
+const minutes = "00";
+const seconds = "00";
+const element_minutes = <p>{minutes}</p>
+const element_secondes = <p>{seconds}</p>
+ReactDOM.render(element_minutes, document.querySelector(".number__minutes"));
+ReactDOM.render(element_secondes, document.querySelector(".number__seconds") )

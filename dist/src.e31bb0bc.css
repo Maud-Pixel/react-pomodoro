@@ -4,14 +4,74 @@
   box-sizing: border-box; }
 
 header, footer {
-  background-color: #66b3ff;
+  background-color: #5399AC;
   height: 15vh;
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 h1 {
   font-size: 4rem;
-  margin-top: 3rem;
-  text-align: center; }
+  text-align: center;
+  color: white; }
+
+body {
+  background-color: #ccffe6;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.border {
+  display: block;
+  margin: 10% auto;
+  width: 20rem; }
+  .border__background {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #91BC73;
+    width: 20rem;
+    height: 12rem;
+    border: 1rem solid #51845D;
+    border-radius: 1rem; }
+    .border__background__number {
+      display: flex;
+      flex-direction: row;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: auto;
+      margin-bottom: auto; }
+    .border__background__buttons {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem; }
+
+.buttons__change {
+  display: flex;
+  flex-direction: row; }
+  .buttons__change__minus, .buttons__change__plus {
+    background-color: #5399AC;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    margin: 0.5rem;
+    color: white;
+    font-weight: bold; }
+
+.buttons__start, .buttons__reset {
+  background-color: #ccffe6;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #5399AC;
+  font-weight: bold; }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
