@@ -29844,14 +29844,15 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/hellomessage.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-require("./scss/app.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29900,75 +29901,162 @@ var HelloMessage = /*#__PURE__*/function (_React$Component) {
   return HelloMessage;
 }(_react.default.Component);
 
-var App = document.getElementById("app");
+var _default = HelloMessage;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/newTimer.js":[function(require,module,exports) {
+"use strict";
 
-_reactDom.default.render(_react.default.createElement(HelloMessage, {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var DisplayTime = /*#__PURE__*/function (_React$Component) {
+  _inherits(DisplayTime, _React$Component);
+
+  var _super = _createSuper(DisplayTime);
+
+  function DisplayTime() {
+    var _this;
+
+    _classCallCheck(this, DisplayTime);
+
+    _this = _super.call(this);
+    _this.state = {
+      minute: "00",
+      second: "00",
+      count: 0,
+      intervalID: null
+    };
+    _this.DecreaseButton = _this.DecreaseButton.bind(_assertThisInitialized(_this));
+    _this.IncreaseButton = _this.IncreaseButton.bind(_assertThisInitialized(_this));
+    _this.Decrease = _this.Decrease.bind(_assertThisInitialized(_this));
+    _this.StartButton = _this.StartButton.bind(_assertThisInitialized(_this));
+    _this.ResetButton = _this.ResetButton.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(DisplayTime, [{
+    key: "DecreaseButton",
+    value: function DecreaseButton() {
+      this.setState(function (prevState) {
+        return {
+          minute: parseInt(prevState.minute) - 1
+        };
+      });
+      console.log("diminue");
+    }
+  }, {
+    key: "IncreaseButton",
+    value: function IncreaseButton() {
+      this.setState(function (prevState) {
+        return {
+          minute: parseInt(prevState.minute) + 1
+        };
+      });
+      console.log("augmente");
+    }
+  }, {
+    key: "Decrease",
+    value: function Decrease() {
+      var _this2 = this;
+
+      this.setState(function (prevState) {
+        if (prevState.second > 0) {
+          return {
+            second: prevState.second - 1,
+            count: prevState.count + 1
+          };
+        } else if (prevState.second == 0 && prevState.minute > 0) {
+          return {
+            second: 59,
+            minute: prevState.minute - 1
+          };
+        } else {
+          clearInterval(_this2.state.intervalID);
+        }
+      });
+      console.log(this.state.count);
+    }
+  }, {
+    key: "StartButton",
+    value: function StartButton() {
+      this.setState({
+        intervalID: setInterval(this.Decrease, 1000)
+      });
+    }
+  }, {
+    key: "ResetButton",
+    value: function ResetButton() {
+      clearInterval(this.state.intervalID);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", null, _react.default.createElement("p", null, this.state.minute, " : ", this.state.second), _react.default.createElement("button", {
+        onClick: this.DecreaseButton
+      }, "-"), _react.default.createElement("button", {
+        onClick: this.IncreaseButton
+      }, "+"), _react.default.createElement("button", {
+        onClick: this.StartButton
+      }, "Start"), _react.default.createElement("button", {
+        onClick: this.ResetButton
+      }, "Reset"));
+    }
+  }]);
+
+  return DisplayTime;
+}(_react.default.Component);
+
+var _default = DisplayTime;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+require("./scss/app.scss");
+
+var _hellomessage = _interopRequireDefault(require("./components/hellomessage"));
+
+var _newTimer = _interopRequireDefault(require("./components/newTimer.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom.default.render(_react.default.createElement(_newTimer.default, null), document.querySelector(".number__seconds"));
+
+_reactDom.default.render(_react.default.createElement(_hellomessage.default, {
   name: "Maud"
-}), App);
-
-var minutes = 10;
-var seconds = 60;
-var count = 0;
-
-function decrease() {
-  if (seconds >= 1) {
-    var element_secondes = _react.default.createElement("p", null, seconds = seconds - 1);
-  } else {
-    element_secondes = _react.default.createElement("p", null, seconds = 60 - 1);
-  }
-
-  count += 1;
-
-  if (count % 60 == 0 && minutes > 0) {
-    console.log("ok");
-
-    var element_minutes = _react.default.createElement("p", null, minutes = minutes - 1);
-
-    _reactDom.default.render(element_minutes, document.querySelector(".number__minutes"));
-  } else if (minutes == 0 && seconds == 0) {
-    minutes = "00";
-    seconds = "00";
-
-    _reactDom.default.render(element_minutes, document.querySelector(".number__minutes"));
-
-    _reactDom.default.render(element_secondes, document.querySelector(".number__seconds"));
-  }
-
-  console.log(count);
-
-  _reactDom.default.render(element_secondes, document.querySelector(".number__seconds"));
-}
-
-setInterval(decrease, 1000); // class Clock extends React.Component
-// {
-//     constructor(props){
-//         super(props);
-//         this.state = {date: new Date()};
-//     }
-//     componentDidMount()
-//     {
-//         this.timerID = setInterval(() => this.tick(), 1000); 
-//     }
-//     componentWillUnmount()
-//     {
-//         clearInterval(this.timerID);
-//     }
-//     tick()
-//     {
-//         this.setState({
-//             date : new Date()
-//         });
-//     }
-//     render(){
-//         return(
-//         <div>
-//             <h1>Bonjour, monde !</h1>
-//             <h2>Il est {this.state.date.toLocaleTimeString()}.</h2>
-//         </div>
-//         )
-//     }
-// }
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./scss/app.scss":"scss/app.scss"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+}), document.getElementById("app"));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./scss/app.scss":"scss/app.scss","./components/hellomessage":"components/hellomessage.js","./components/newTimer.js":"components/newTimer.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29996,7 +30084,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56729" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51028" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
