@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./scss/app.scss";
 
 
-import HelloMessage from "./components/hellomessage"
-import DisplayTime from "./components/newTimer.js"
+import HelloMessage from "./components/hellomessage";
+import DisplayTime from "./components/newTimer.js";
 
 
  ReactDOM.render(<DisplayTime/>, document.querySelector(".number__seconds"));
- ReactDOM.render(<HelloMessage name="Maud"/> , document.getElementById("app"));
+ ReactDOM.render(<HelloMessage/> , document.getElementById("app"));
 
 
 

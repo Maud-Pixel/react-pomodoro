@@ -29884,17 +29884,36 @@ var HelloMessage = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(HelloMessage);
 
   function HelloMessage() {
+    var _this;
+
     _classCallCheck(this, HelloMessage);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.state = {
+      character: {}
+    };
+    return _this;
   }
 
   _createClass(HelloMessage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch("https://jsonplaceholder.typicode.com/todos/1").then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this2.setState({
+          character: data
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: "container"
-      }, _react.default.createElement("h1", null, "Hello ", this.props.name)));
+      }, _react.default.createElement("h1", null, "Hello ", this.state.character.title)));
     }
   }]);
 
@@ -30053,9 +30072,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _reactDom.default.render(_react.default.createElement(_newTimer.default, null), document.querySelector(".number__seconds"));
 
-_reactDom.default.render(_react.default.createElement(_hellomessage.default, {
-  name: "Maud"
-}), document.getElementById("app"));
+_reactDom.default.render(_react.default.createElement(_hellomessage.default, null), document.getElementById("app"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./scss/app.scss":"scss/app.scss","./components/hellomessage":"components/hellomessage.js","./components/newTimer.js":"components/newTimer.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -30084,7 +30101,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51028" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51337" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
