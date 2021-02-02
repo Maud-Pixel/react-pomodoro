@@ -41,6 +41,7 @@ body {
     .border__background__number {
       display: flex;
       flex-direction: row;
+      justify-content: space-around;
       color: white;
       font-size: 2.5rem;
       font-weight: bold;
@@ -50,6 +51,12 @@ body {
       display: flex;
       flex-direction: column;
       padding-top: 1rem; }
+
+#timer {
+  width: 100%; }
+
+.timing {
+  margin-top: 3rem; }
 
 .buttons__change {
   display: flex;
@@ -62,7 +69,8 @@ body {
     text-align: center;
     margin: 0.5rem;
     color: white;
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 1.2rem; }
 
 .buttons__start, .buttons__reset {
   background-color: #ccffe6;
@@ -71,7 +79,8 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   color: #5399AC;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 1.5rem; }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
