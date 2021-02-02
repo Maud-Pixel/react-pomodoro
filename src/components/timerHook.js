@@ -21,6 +21,7 @@ function App()
        setStart(false);
        setSecondes(0);
        sound.pause();
+       clearInterval(intervalId);
    }
 
    function decrease(){
@@ -32,7 +33,8 @@ function App()
         if (is_start == false)
         {
             setIntervalId(setInterval(decrease, 1000)); 
-            setStart(prevstart => prevstart = true);
+            setStart(true);
+
         }
         else
         {
@@ -43,7 +45,7 @@ function App()
    
    function open()
    {
-    console.log(isSoundStart);
+    
     document.querySelector(".border__background__number__two").style.display = "none"; 
     sound.pause();
     
@@ -51,13 +53,13 @@ function App()
    useEffect(
       function Break()
        {
-           if(secondes == 0 && isSoundStart == false && setStart ==true)
+           if(secondes == 0 && isSoundStart == false && is_start ==true)
            {
                sound.play();
                setSoundStart(true);
                document.querySelector(".border__background__number__two").style.display = "block"; 
            }
-       } 
+       }
    )
 
    
@@ -84,6 +86,7 @@ function App()
                     <p className="sentence">Take a break</p>
                     <button className="buttons__reset__two" onClick={reset,open}>Reset</button>
                 </div>
+                <p>{console.log(secondes)}</p>
             </div>
        </div>
        

@@ -30126,6 +30126,7 @@ function App() {
     setStart(false);
     setSecondes(0);
     sound.pause();
+    clearInterval(intervalId);
   }
 
   function decrease() {
@@ -30137,9 +30138,7 @@ function App() {
   function start() {
     if (is_start == false) {
       setIntervalId(setInterval(decrease, 1000));
-      setStart(function (prevstart) {
-        return prevstart = true;
-      });
+      setStart(true);
     } else {
       clearInterval(intervalId);
       setStart(function (prevstart) {
@@ -30149,13 +30148,12 @@ function App() {
   }
 
   function open() {
-    console.log(isSoundStart);
     document.querySelector(".border__background__number__two").style.display = "none";
     sound.pause();
   }
 
   (0, _react.useEffect)(function Break() {
-    if (secondes == 0 && isSoundStart == false && setStart == true) {
+    if (secondes == 0 && isSoundStart == false && is_start == true) {
       sound.play();
       setSoundStart(true);
       document.querySelector(".border__background__number__two").style.display = "block";
@@ -30190,7 +30188,7 @@ function App() {
   }, "Take a break"), _react.default.createElement("button", {
     className: "buttons__reset__two",
     onClick: (reset, open)
-  }, "Reset"))));
+  }, "Reset")), _react.default.createElement("p", null, console.log(secondes))));
 }
 
 var _default = App;
@@ -30246,7 +30244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59565" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52016" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
