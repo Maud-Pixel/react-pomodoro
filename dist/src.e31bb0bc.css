@@ -46,7 +46,20 @@ body {
       font-size: 2.5rem;
       font-weight: bold;
       margin-top: auto;
-      margin-bottom: auto; }
+      margin-bottom: auto;
+      z-index: 1; }
+      .border__background__number__two {
+        border-radius: 1rem;
+        width: 18rem;
+        height: 10rem;
+        position: absolute;
+        z-index: 2;
+        background-color: #91BC73;
+        text-align: center;
+        padding-top: 2rem;
+        display: none; }
+        .border__background__number__two .sentence {
+          color: white; }
     .border__background__buttons {
       display: flex;
       flex-direction: column;
@@ -72,7 +85,7 @@ body {
     font-weight: bold;
     font-size: 1.2rem; }
 
-.buttons__start, .buttons__reset {
+.buttons__start, .buttons__reset, .buttons__reset__two {
   background-color: #ccffe6;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -80,7 +93,8 @@ body {
   border-radius: 1rem;
   color: #5399AC;
   font-weight: bold;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  border-color: 1px solid #ccffe6; }
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */

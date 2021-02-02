@@ -52,6 +52,21 @@ body{
       font-weight: bold;
       margin-top: auto;
       margin-bottom: auto;
+      z-index: 1;
+      &__two
+      {border-radius: 1rem;
+       width: 18rem;
+       height: 10rem;
+       position: absolute;
+       z-index:2;
+       background-color: #91BC73;
+       text-align: center;
+       padding-top: 2rem;
+       display: none;
+       .sentence{
+         color: white;
+       }
+    }
     }
     &__buttons
     {
@@ -90,7 +105,7 @@ body{
     }
   }
   
-  &__start, &__reset
+  &__start, &__reset, &__reset__two
   {
     background-color: #ccffe6;
     margin-bottom: 0.5rem;
@@ -100,6 +115,7 @@ body{
     color: #5399AC;
     font-weight: bold;
     font-size: 1.5rem;
+    border-color:1px solid #ccffe6;
   }
 }
 

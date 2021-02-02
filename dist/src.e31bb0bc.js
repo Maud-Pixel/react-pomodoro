@@ -30100,10 +30100,15 @@ function App() {
       is_start = _useState4[0],
       setStart = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(null),
+  var _useState5 = (0, _react.useState)(false),
       _useState6 = _slicedToArray(_useState5, 2),
-      intervalId = _useState6[0],
-      setIntervalId = _useState6[1];
+      isSoundStart = _useState6[0],
+      setSoundStart = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      intervalId = _useState8[0],
+      setIntervalId = _useState8[1];
 
   function increment() {
     setSecondes(function (prevSecondes) {
@@ -30118,7 +30123,9 @@ function App() {
   }
 
   function reset() {
+    setStart(false);
     setSecondes(0);
+    sound.pause();
   }
 
   function decrease() {
@@ -30141,15 +30148,26 @@ function App() {
     }
   }
 
-  function music() {
-    sound.play();
+  function open() {
+    console.log(isSoundStart);
+    document.querySelector(".border__background__number__two").style.display = "none";
+    sound.pause();
   }
 
-  var sec = secondes % 60;
-  var min = Math.trunc(secondes / 60);
+  (0, _react.useEffect)(function Break() {
+    if (secondes == 0 && isSoundStart == false && setStart == true) {
+      sound.play();
+      setSoundStart(true);
+      document.querySelector(".border__background__number__two").style.display = "block";
+    }
+  });
+  var sec = String(secondes % 60).padStart(2, '0');
+  var min = String(Math.trunc(secondes / 60)).padStart(2, '0');
   return _react.default.createElement("div", {
+    className: "box"
+  }, _react.default.createElement("div", {
     className: "border__background__number"
-  }, _react.default.createElement("div", null, _react.default.createElement("p", null), _react.default.createElement("p", {
+  }, _react.default.createElement("div", null, _react.default.createElement("p", {
     className: "timing"
   }, min, ":", sec)), _react.default.createElement("div", null, _react.default.createElement("div", {
     className: "buttons__change"
@@ -30165,7 +30183,14 @@ function App() {
   }, "Start"), _react.default.createElement("div", {
     className: "buttons__reset",
     onClick: reset
-  }, "Reset")));
+  }, "Reset")), _react.default.createElement("div", {
+    className: "border__background__number__two"
+  }, _react.default.createElement("p", {
+    className: "sentence"
+  }, "Take a break"), _react.default.createElement("button", {
+    className: "buttons__reset__two",
+    onClick: (reset, open)
+  }, "Reset"))));
 }
 
 var _default = App;
@@ -30187,11 +30212,12 @@ var _timerHook = _interopRequireDefault(require("./components/timerHook"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import Break from "./components/break";
 //ReactDOM.render(<DisplayTime/>, document.querySelector(".number__seconds"));
 //ReactDOM.render(<App/>, document.querySelector(".buttons__change"));
 _reactDom.default.render(_react.default.createElement(_timerHook.default, null), document.getElementById("timer"));
 
-_reactDom.default.render(_react.default.createElement(_hellomessage.default, null), document.getElementById("app"));
+_reactDom.default.render(_react.default.createElement(_hellomessage.default, null), document.getElementById("app")); //ReactDOM.render(<Break/>, document.getElementById("break"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./scss/app.scss":"scss/app.scss","./components/hellomessage":"components/hellomessage.js","./components/newTimer":"components/newTimer.js","./components/timerHook":"components/timerHook.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
